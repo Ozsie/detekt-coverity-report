@@ -4,7 +4,7 @@
 
     <groupId>com.github.ozsie</groupId>
     <artifactId>detekt-coverity-report</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -168,6 +168,7 @@
         <url>https://github.com/ozsie/detekt-coverity-report</url>
         <connection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</connection>
         <developerConnection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
