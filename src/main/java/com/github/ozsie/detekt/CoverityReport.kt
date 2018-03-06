@@ -30,7 +30,7 @@ class CoverityReport : OutputReport() {
                         tag = it.id,
                         description = it.issue.description,
                         file = f.absolutePath,
-                        line = it.entity.location.source.line,
+                        line = it.location.source.line,
                         linkText = null,
                         linkUrl = null,
                         main = null
