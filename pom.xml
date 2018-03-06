@@ -11,7 +11,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <kotlin.version>1.2.21</kotlin.version>
+        <kotlin.version>1.2.30</kotlin.version>
         <detekt.version>1.0.0.RC6-3</detekt.version>
     </properties>
 
@@ -166,4 +166,10 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <scm>
+        <url>https://github.com/ozsie/detekt-coverity-report</url>
+        <connection>scm:git:git://github.com/ozsie/detekt-coverity-report.git</connection>
+        <developerConnection>scm:git:git@github.com/ozsie/detekt-coverity-report.git</developerConnection>
+    </scm>
 </project>
