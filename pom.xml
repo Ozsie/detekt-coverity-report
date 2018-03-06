@@ -168,5 +168,13 @@
         <url>https://github.com/ozsie/detekt-coverity-report</url>
         <connection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</connection>
         <developerConnection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</developerConnection>
-  </scm>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-ozsie-maven</id>
+            <name>ozsie-maven</name>
+            <url>https://api.bintray.com/maven/ozsie/maven/detekt-coverity-report/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>
