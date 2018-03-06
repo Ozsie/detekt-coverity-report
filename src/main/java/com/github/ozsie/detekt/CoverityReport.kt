@@ -7,6 +7,7 @@ import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import io.gitlab.arturbosch.detekt.api.Detektion
 import io.gitlab.arturbosch.detekt.api.OutputReport
+import java.io.File
 
 class CoverityReport : OutputReport() {
 
@@ -20,14 +21,15 @@ class CoverityReport : OutputReport() {
         detektion.findings.keys.forEach {
             val findings = detektion.findings.get(it)
             findings?.forEach {
+                val f = File(it.location.file)
                 sources.add(Source(
-                        file = it.location.file,
+                        file = f.absolutePath,
                         encoding = null))
                 val events = ArrayList<Event>()
                 events.add(Event(
                         tag = it.id,
                         description = it.issue.description,
-                        file = it.entity.location.file,
+                        file = f.absolutePath,
                         line = it.entity.location.source.line,
                         linkText = null,
                         linkUrl = null,
@@ -36,7 +38,7 @@ class CoverityReport : OutputReport() {
                 issues.add(Issue(
                         checker = it.id,
                         extra = it.id + "_var",
-                        file = it.entity.location.file,
+                        file = f.absolutePath,
                         function = null,
                         subcategory = it.issue.severity.name,
                         properties = null,
