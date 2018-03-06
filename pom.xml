@@ -11,9 +11,6 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <cxf.version>3.1.9</cxf.version>
-        <augustus-lib.version>1.0.0-SNAPSHOT</augustus-lib.version>
-        <maven-jaxb2-plugin.version>0.13.2</maven-jaxb2-plugin.version>
         <kotlin.version>1.2.21</kotlin.version>
         <detekt.version>1.0.0.RC6-3</detekt.version>
     </properties>
@@ -78,9 +75,6 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <version>${kotlin.version}</version>
                 <configuration>
-                    <compilerPlugins>
-                        <plugin>spring</plugin>
-                    </compilerPlugins>
                     <jvmTarget>1.8</jvmTarget>
                 </configuration>
                 <executions>
