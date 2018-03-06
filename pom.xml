@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.teliacompany.web.mt</groupId>
@@ -121,16 +119,15 @@
                         <phase>verify</phase>
                         <configuration>
                             <target name="detekt">
-                                <java taskname="detekt" dir="${basedir}" fork="true" failonerror="true"
-                                      classname="io.gitlab.arturbosch.detekt.cli.Main" classpathref="maven.plugin.classpath">
-                                    <arg value="-i"/>
-                                    <arg value="${basedir}/src"/>mvn
-                                    <arg value="-f"/>
-                                    <arg value=".*test.*"/>
-                                    <arg value="-o"/>
-                                    <arg value="${basedir}/detekt"/>
-                                    <arg value="-c"/>
-                                    <arg value="${basedir}/detekt.yml"/>
+                                <java taskname="detekt" dir="${basedir}" fork="true" failonerror="true" classname="io.gitlab.arturbosch.detekt.cli.Main" classpathref="maven.plugin.classpath">
+                                    <arg value="-i" />
+                                    <arg value="${basedir}/src" />mvn
+                                    <arg value="-f" />
+                                    <arg value=".*test.*" />
+                                    <arg value="-o" />
+                                    <arg value="${basedir}/detekt" />
+                                    <arg value="-c" />
+                                    <arg value="${basedir}/detekt.yml" />
                                     <arg value="-p" />
                                     <arg value="${basedir}/target/detekt-coverity-report-jar-with-dependencies.jar" />
                                 </java>
@@ -169,7 +166,7 @@
 
     <scm>
         <url>https://github.com/ozsie/detekt-coverity-report</url>
-        <connection>scm:git:git://github.com/ozsie/detekt-coverity-report.git</connection>
-        <developerConnection>scm:git:git@github.com/ozsie/detekt-coverity-report.git</developerConnection>
-    </scm>
+        <connection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</connection>
+        <developerConnection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</developerConnection>
+  </scm>
 </project>
