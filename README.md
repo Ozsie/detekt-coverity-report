@@ -1,0 +1,1 @@
+# detekt-coverity-report
