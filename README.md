@@ -14,13 +14,15 @@ exports in Coveritys import format.
 
 Have a look at the excellent documentation for Detekt for more detailed information.
 
+https://github.com/arturbosch/detekt
+
 ```
 java -jar /path/to/detekt/detekt-cli-[version]-all.jar [parameters]* -p /path/to/detekt-coverity-report/dct-dep.jar
 ```
 
 **Maven**
 
-```
+```xml
   <build>
       <plugins>
           <plugin>
@@ -92,4 +94,4 @@ java -jar /path/to/detekt/detekt-cli-[version]-all.jar [parameters]* -p /path/to
           </pluginRepository>
       </pluginRepositories>
   </pluginRepositories>
-``
+```
