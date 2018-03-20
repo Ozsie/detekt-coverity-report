@@ -1,8 +1,4 @@
 package com.github.ozsie.detekt
-import com.github.ozsie.detekt.model.Event
-import com.github.ozsie.detekt.model.Issue
-import com.github.ozsie.detekt.model.Report
-import com.github.ozsie.detekt.model.Source
 import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import io.gitlab.arturbosch.detekt.api.Detektion
@@ -18,31 +14,15 @@ class CoverityReport : OutputReport() {
         val sources = HashSet<Source>()
         val issues = ArrayList<Issue>()
 
-        detektion.findings.keys.forEach {
-            val findings = detektion.findings.get(it)
-            findings?.forEach {
+        detektion.findings.forEach { _, findings ->
+            findings.forEach {
                 val f = File(it.location.file)
-                sources.add(Source(
-                        file = f.absolutePath,
-                        encoding = null))
+                sources.add(Source(file = f.absolutePath))
                 val events = ArrayList<Event>()
-                events.add(Event(
-                        tag = it.id,
-                        description = it.issue.description,
-                        file = f.absolutePath,
-                        line = it.location.source.line,
-                        linkText = null,
-                        linkUrl = null,
-                        main = null
-                ))
-                issues.add(Issue(
-                        checker = it.id,
-                        extra = it.id + "_var",
-                        file = f.absolutePath,
-                        function = null,
-                        subcategory = it.issue.severity.name,
-                        properties = null,
-                        events = events))
+                events.add(Event(tag = it.id, description = it.issue.description,
+                        file = f.absolutePath, line = it.location.source.line))
+                issues.add(Issue(checker = it.id, extra = it.id + "_var", file = f.absolutePath,
+                        subcategory = it.issue.severity.name, events = events))
             }
         }
 
@@ -50,13 +30,11 @@ class CoverityReport : OutputReport() {
     }
 
     fun toJson(report: Report): String {
-        val moshi = Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
-
-        val reportAdapter = moshi.adapter(Report::class.java)
-
-        return reportAdapter.toJson(report)
+        return Moshi.Builder()
+                .add(KotlinJsonAdapterFactory())
+                .build()
+                .adapter(Report::class.java)
+                .toJson(report)
     }
 
 }
