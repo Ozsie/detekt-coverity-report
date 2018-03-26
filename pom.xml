@@ -10,7 +10,7 @@
     <properties>
         <java.version>1.8</java.version>
         <kotlin.version>1.2.30</kotlin.version>
-        <detekt.version>1.0.0.RC6-4</detekt.version>
+        <detekt.version>1.0.0.RC6-3</detekt.version>
     </properties>
 
     <dependencies>
@@ -111,38 +111,29 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
+                <groupId>com.github.ozsie</groupId>
+                <artifactId>detekt-maven-plugin</artifactId>
+                <version>1.0.0.RC6-3</version>
                 <executions>
                     <execution>
-                        <!-- This can be run separately with mvn antrun:run@detekt -->
-                        <id>detekt</id>
                         <phase>verify</phase>
+                        <goals><goal>detekt</goal></goals>
                         <configuration>
-                            <target name="detekt">
-                                <java taskname="detekt" dir="${basedir}" fork="true" failonerror="true" classname="io.gitlab.arturbosch.detekt.cli.Main" classpathref="maven.plugin.classpath">
-                                    <arg value="-i" />
-                                    <arg value="${basedir}/src" />mvn
-                                    <arg value="-f" />
-                                    <arg value=".*test.*" />
-                                    <arg value="-o" />
-                                    <arg value="${basedir}/detekt" />
-                                    <arg value="-c" />
-                                    <arg value="${basedir}/detekt.yml" />
-                                    <arg value="-p" />
-                                    <arg value="${basedir}/target/dct-dep.jar" />
-                                </java>
-                            </target>
+                            <filters>
+                                <filter>.*test.*</filter>
+                            </filters>
+                            <config>${basedir}/detekt.yml</config>
+                            <plugins>
+                                <plugin>com.github.ozsie:detekt-coverity-report</plugin>
+                            </plugins>
                         </configuration>
-                        <goals><goal>run</goal></goals>
                     </execution>
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>io.gitlab.arturbosch.detekt</groupId>
-                        <artifactId>detekt-cli</artifactId>
-                        <version>${detekt.version}</version>
+                        <groupId>com.github.ozsie</groupId>
+                        <artifactId>detekt-coverity-report</artifactId>
+                        <version>${project.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -163,6 +154,14 @@
                 <enabled>false</enabled>
                 <updatePolicy>never</updatePolicy>
             </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-ozsie-maven</id>
+            <name>bintray-plugins</name>
+            <url>https://dl.bintray.com/ozsie/maven</url>
         </pluginRepository>
     </pluginRepositories>
 
