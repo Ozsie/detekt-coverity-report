@@ -184,8 +184,8 @@
 
     <scm>
         <url>https://github.com/ozsie/detekt-coverity-report</url>
-        <connection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</connection>
-        <developerConnection>scm:git:git@github.com:ozsie/detekt-coverity-report.git</developerConnection>
+        <connection>scm:git:https://github.com/ozsie/detekt-coverity-report.git</connection>
+        <developerConnection>scm:git:https://github.com/ozsie/detekt-coverity-report.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
