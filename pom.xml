@@ -123,19 +123,9 @@
                                 <filter>.*test.*</filter>
                             </filters>
                             <config>${basedir}/detekt.yml</config>
-                            <plugins>
-                                <plugin>com.github.ozsie:detekt-coverity-report</plugin>
-                            </plugins>
                         </configuration>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.github.ozsie</groupId>
-                        <artifactId>detekt-coverity-report</artifactId>
-                        <version>${project.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
