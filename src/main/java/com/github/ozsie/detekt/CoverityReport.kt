@@ -26,15 +26,14 @@ class CoverityReport : OutputReport() {
             }
         }
 
-        return toJson(Report(sources = sources, issues = issues))
+        return Report(sources = sources, issues = issues).toJson()
     }
+}
 
-    fun toJson(report: Report): String {
-        return Moshi.Builder()
-                .add(KotlinJsonAdapterFactory())
-                .build()
-                .adapter(Report::class.java)
-                .toJson(report)
-    }
-
+fun Report.toJson(): String {
+    return Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+            .adapter(Report::class.java)
+            .toJson(this)
 }
