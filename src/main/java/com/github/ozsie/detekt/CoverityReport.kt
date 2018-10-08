@@ -7,7 +7,6 @@ import java.io.File
 
 class CoverityReport : OutputReport() {
 
-    override var fileName: String = "coverity"
     override val ending: String = "json"
 
     override fun render(detektion: Detektion): String? {

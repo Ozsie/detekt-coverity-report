@@ -4,13 +4,13 @@
 
     <groupId>com.github.ozsie</groupId>
     <artifactId>detekt-coverity-report</artifactId>
-    <version>1.0.0.RC6-5-SNAPSHOT</version>
+    <version>1.0.0.RC9.2</version>
     <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
-        <kotlin.version>1.2.30</kotlin.version>
-        <detekt.version>1.0.0.RC6-4</detekt.version>
+        <kotlin.version>1.2.71</kotlin.version>
+        <detekt.version>1.0.0.RC9.2</detekt.version>
     </properties>
 
     <dependencies>
@@ -113,7 +113,7 @@
             <plugin>
                 <groupId>com.github.ozsie</groupId>
                 <artifactId>detekt-maven-plugin</artifactId>
-                <version>1.0.0.RC6-4</version>
+                <version>1.0.0.RC9.2</version>
                 <executions>
                     <execution>
                         <phase>verify</phase>
